@@ -21,6 +21,11 @@
 	pattern[-8] = 'e';
 	pattern[-9] = 'o';
 	pattern[-10] = '#';
+	pattern[-11] = '&#8626'; // left up
+	pattern[-12] = '&#8624'; // left bottom
+	pattern[-13] = '&#8627'; // right up
+	pattern[-14] = '&#8625'; // right bottom
+	
 	
 	var movesText = document.getElementById('moves'),
 		completeText = document.getElementById('complete');
@@ -96,9 +101,12 @@
 					uswqp = (t0 === -5 && y - pos.y === -1) || (t1 === -5 && y - pos.y === 1),
 					rswqp = (t0 === -6 && x - pos.x === 1) || (t1 === -6 && x - pos.x === -1),
 					dswqp = (t0 === -7 && y - pos.y === 1) || (t1 === -7 && y - pos.y === -1),
+					luswqp = (t0 === -11 && (x - pos.x === -1 || y - pos.y === -1)) || (t1 === -11 && (x - pos.x === 1 || y - pos.y === 1)),
+					ldswqp = (t0 === -12 && (x - pos.x === -1 || y - pos.y === 1)) || (t1 === -12 && (x - pos.x === 1 || y - pos.y === -1)),						ruswqp = (t0 === -13 && (x - pos.x === 1 || y - pos.y === -1)) || (t1 === -13 && (x - pos.x === -1 || y - pos.y === 1)),
+					rdswqp = (t0 === -14 && (x - pos.x === 1 || y - pos.y === 1)) || (t1 === -14 && (x - pos.x === -1 || y - pos.y === -1)),
 					nswap = (t0 === -10 && t1 > 0) || (t1 === -10 && t0 > 0),
 					neighbor = dx + dy === 1;
-				if(!block && (empty || hswqp || vswap || lswqp || uswqp || rswqp || dswqp || eswap || oswap || nswap) && neighbor) {
+				if(!block && (empty || hswqp || vswap || lswqp || uswqp || rswqp || dswqp || luswqp || ldswqp || ruswqp || rdswqp || eswap || oswap || nswap) && neighbor) {
 					table[pos.y][pos.x] = table[y][x];
 					table[y][x] = t0;
 					
