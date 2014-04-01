@@ -121,6 +121,16 @@
 				first = true;
 
 				if(check(answer, table)) {
+					var q = location.pathname.match(/.*\/([^\?#;\/]+).*$/)[1],
+						n = q.match(/\d+/),
+						url = 'https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F';
+					url += '&text=' + encodeURIComponent('Q.' + n + 'を' + moves + '手でクリア');
+					
+					var tweet = document.getElementById('tweet');
+					if(tweet) {
+						tweet.href = url;
+					}
+					
 					try {
 						if(localStorage) {
 							var q = location.pathname.match(/.*\/([^\?#;\/]+).*$/)[1],

@@ -77,7 +77,7 @@ ul li {
 	width: 360px;
 }
 
-#reset, #next, #clear {
+#reset, #next, #clear, #tweet {
 	border: 1px solid #AAA;
 	border-radius: 3px;
 	background-color: #EEE;
