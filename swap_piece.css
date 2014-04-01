@@ -1,3 +1,6 @@
+* {
+}
+
 body {
 	font-family: Gotham, "Clear Sans", "Helvetica Neue", Arial, Meiryo, sans-serif;
 /*	font-family: Consolas, 'Courier New', Meiryo, Courier, Monaco, monospace;*/
@@ -18,7 +21,7 @@ td {
 	font-size: 40px;
 	border-radius: 6px;
 	cursor: pointer;
-/*	transition: background-color linear 0.1s;*/
+	transition: background-color linear 0.1s;
 	color: #000;
 
 /*
@@ -59,10 +62,19 @@ td.block {
 }
 
 p {
+	margin-top: 16px;
+	margin-bottom: 16px;
 }
 
 ul li {
 	line-height: 1.5em;
+}
+
+#menu {
+/*	float: right;*/
+	text-align: right;
+	margin-top: -40px;
+	margin-right: 12px;
 }
 
 #complete {
@@ -72,12 +84,17 @@ ul li {
 	margin: 8px 4px;
 }
 
+#complete p {
+	margin: 0;
+	text-align: center;
+}
+
 #container {
 	margin: 0 auto;
 	width: 360px;
 }
 
-#reset, #next, #clear, #tweet {
+#reset, #next, #clear, #tweet, #top {
 	border: 1px solid #AAA;
 	border-radius: 3px;
 	background-color: #EEE;
@@ -91,11 +108,14 @@ ul li {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
 }
 
+#reset:hover, #next:hover, #clear:hover, #top:hover {
+	background-color: #EDE;
+}
+
 #tweet {
 	padding-left: 22px;
 	background-position: 4px center;
 	background-repeat: no-repeat;
-/*	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADIElEQVRYw2NgGAUDDf7//08V/PPPP85tNz7k1+16cjJp9b1v8avu/ine8vD2wrOvJ778/EsBXf39dz/0f//9xwrXvPPWh0xyLX/y8adGydZHN+NW3v2PDSevuff10L1PMZ9//hE49uBzeNeBZ9v6Dj1fD9ILNuDog8+RQIX/dt/6mEGq5e++/ZbI3fjgKS7LYTgeaD4Q/wWxM9fff/3qyy95uAPmn3k9Farw34ar7yr/keCAKcdeLCVkOTLO3/Tw4anHX3wP3vsUv/n6+wKwIZOPvliBrGjikRcrP//8K0DI8vff/ognrLr7mxQHJK6+9x1El217dO3zjz9C6CEAx6BgPXL/U9S/f/8ZcTng5KMvQaRYDsOV2x9ffPvttyR6GsCueMfji8Dgivvx+x8nugP23P6YQarl5UCff/v1lxdmBpgAGU4oIaWuvf9x0tEXK4GWpt99+8P4y8+/fMcefg4n1QEte5/uQ/YEnHHmyRdfWColFgPj/yepDug++HwLhgPWXXlXBYqGNZff1gAN/UVOvBKLZ518NQfDAfNOv55GS0uR8eZr78swHHD68Rc/ejngyotvjhgO+PPvH3PF9seXaG05qEgGFvscWBPhg3c/9NLW3v9ASwcAC7jV6FkZvYYyKN366DqtHHDu6VcvvA749OOP8JMPP9VWXnzbmL7u/jtqWg4qev/++8+E1wHPP/1SAWbDP7Tw/fGHn0OxFecYAovPvemltuVt+57uAdawjEQ5ANRK6T/8fA21LAdG5XtsLSKcDgBhYA3ItOvWx8y8TQ8eUWI5qFl29skXH3xVOt76HpRobr/5blK98/EZki0HNm723vmYSqhNgVfywrOvbsDq+AKplgMbHT8PAKtwYlpUKJxff/6xAatao03X3peDGg3kBHvBpocPbrz6bk1sk47h/NOvro17nhzM2fDgWTwFWRDk60XnXvd9/fWXj5RGLczn7MD4SgHG9VlSLc5af//VEmDWffXltxw5TXpsbXz1bTfeF4LKbVCxDKxAvsB9uereD1AQt+9/tmvFxbdtl55/cwZlW0o6NKNgwAEAZXmCKBAGWwwAAAAASUVORK5CYII=);*/
 	background-image: url("./tweet_48.png");
 	background-size: 16px 16px;
 	-webkit-background-size: 16px 16px;
