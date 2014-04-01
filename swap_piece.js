@@ -64,8 +64,8 @@
 		pos.y = 0;
 		moves = 0;
 		movesText.textContent = 0;
-		document.getElementById('table').addEventListener('mousedown', clickPiece);
 		document.getElementById('table').addEventListener('touchstart', clickPiece);
+		document.getElementById('table').addEventListener('mousedown', clickPiece);
 		
 		if(localStorage) {
 			var q = location.pathname.match(/.*\/([^\?#;\/]+).*$/)[1],
@@ -144,8 +144,8 @@
 					} catch(e) {
 					}
 					completeText.style.display = 'block';
-					document.getElementById('table').removeEventListener('mousedown', clickPiece);
 					document.getElementById('table').removeEventListener('touchstart', clickPiece);
+					document.getElementById('table').removeEventListener('mousedown', clickPiece);
 				}
 			}
 		}
