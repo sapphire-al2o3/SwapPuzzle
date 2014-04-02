@@ -93,20 +93,21 @@
 					dy = Math.abs(y - pos.y),
 					block = t0 === 0 || t1 === 0,
 					empty = t0 === -1 || t1 === -1,
-					hswqp = (t0 === -2 || t1 === -2) && dx === 1,
+					hswap = (t0 === -2 || t1 === -2) && dx === 1,
 					vswap = (t0 === -3 || t1 === -3) && dy === 1,
 					eswap = (t0 === -8 && t1 > 0 && (t1 & 1) === 0) || (t1 === -8 && t0 > 0 && (t0 & 1) === 0),
 					oswap = (t0 === -9 && t1 > 0 && (t1 & 1) === 1) || (t1 === -9 && t0 > 0 && (t0 & 1) === 1),
-					lswqp = (t0 === -4 && x - pos.x === -1) || (t1 === -4 && x - pos.x === 1),
-					uswqp = (t0 === -5 && y - pos.y === -1) || (t1 === -5 && y - pos.y === 1),
-					rswqp = (t0 === -6 && x - pos.x === 1) || (t1 === -6 && x - pos.x === -1),
-					dswqp = (t0 === -7 && y - pos.y === 1) || (t1 === -7 && y - pos.y === -1),
-					luswqp = (t0 === -11 && (x - pos.x === -1 || y - pos.y === -1)) || (t1 === -11 && (x - pos.x === 1 || y - pos.y === 1)),
-					ldswqp = (t0 === -12 && (x - pos.x === -1 || y - pos.y === 1)) || (t1 === -12 && (x - pos.x === 1 || y - pos.y === -1)),						ruswqp = (t0 === -13 && (x - pos.x === 1 || y - pos.y === -1)) || (t1 === -13 && (x - pos.x === -1 || y - pos.y === 1)),
-					rdswqp = (t0 === -14 && (x - pos.x === 1 || y - pos.y === 1)) || (t1 === -14 && (x - pos.x === -1 || y - pos.y === -1)),
+					lswap = (t0 === -4 && x - pos.x === -1) || (t1 === -4 && x - pos.x === 1),
+					uswap = (t0 === -5 && y - pos.y === -1) || (t1 === -5 && y - pos.y === 1),
+					rswap = (t0 === -6 && x - pos.x === 1) || (t1 === -6 && x - pos.x === -1),
+					dswap = (t0 === -7 && y - pos.y === 1) || (t1 === -7 && y - pos.y === -1),
+					luswap = (t0 === -11 && (x - pos.x === -1 || y - pos.y === -1)) || (t1 === -11 && (x - pos.x === 1 || y - pos.y === 1)),
+					ldswap = (t0 === -12 && (x - pos.x === -1 || y - pos.y === 1)) || (t1 === -12 && (x - pos.x === 1 || y - pos.y === -1)),
+					ruswap = (t0 === -13 && (x - pos.x === 1 || y - pos.y === -1)) || (t1 === -13 && (x - pos.x === -1 || y - pos.y === 1)),
+					rdswap = (t0 === -14 && (x - pos.x === 1 || y - pos.y === 1)) || (t1 === -14 && (x - pos.x === -1 || y - pos.y === -1)),
 					nswap = (t0 === -10 && t1 > 0) || (t1 === -10 && t0 > 0),
 					neighbor = dx + dy === 1;
-				if(!block && (empty || hswqp || vswap || lswqp || uswqp || rswqp || dswqp || luswqp || ldswqp || ruswqp || rdswqp || eswap || oswap || nswap) && neighbor) {
+				if(!block && (empty || hswap || vswap || lswap || uswap || rswap || dswap || luswap || ldswap || ruswap || rdswap || eswap || oswap || nswap) && neighbor) {
 					table[pos.y][pos.x] = table[y][x];
 					table[y][x] = t0;
 					
