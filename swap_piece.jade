@@ -1,0 +1,52 @@
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width")
+		title Swap Puzzle Q.#{n}
+		link(rel='stylesheet', href='swap_piece.css')
+	body
+		#container
+			p Moves 
+				span#moves 0
+				span#best
+			
+			p#menu
+				a#top(href="./index.html") Top
+				span#reset Reset
+			
+			table#table
+				for tr, i in q
+					tr
+						for td, j in tr
+							td(id='p'+i+j) #{td}
+			
+			#complete
+				p Complete!
+				p
+					a#next(href="swap_piece_" + (n + 1) + ".html") Next
+					- var url = encodeURIComponent("http://sapphire-al2o3.github.io/SwapPuzzle/");
+					a#tweet(href="https://twitter.com/share?url=" + url, target="_blank") Tweet
+			
+			h2 ANSWER
+			table#answer
+				tr
+					td 0
+					td 1
+					td 2
+				for r in a
+					tr
+						for d in r
+							td #{d === 0 ? ' ' : d}
+			
+			h2 RULE
+			ul#rule
+				li 数字をクリックしてピースの場所を入れ替える。
+				li 数字は隣接する<span>x</span>とだけ交換できる。
+				li 答えと同じ配置にするとクリア。
+			
+			script(src="swap_piece.js")
+			script.
+				var a = #{JSON.stringify(a)},
+					q = #{JSON.stringify(q)};
+				start(q, a);
