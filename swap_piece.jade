@@ -18,8 +18,8 @@ html
 			table#table
 				for tr, i in q
 					tr
-						for td, j in tr
-							td(id='p'+i+j) #{td}
+					for td, j in tr
+						td(id='p'+i+j) #{td}
 			
 			#complete
 				p Complete!
@@ -30,14 +30,10 @@ html
 			
 			h2 ANSWER
 			table#answer
-				tr
-					td 0
-					td 1
-					td 2
 				for r in a
 					tr
-						for d in r
-							td #{d === 0 ? ' ' : d}
+					for d in r
+						td #{d === 0 ? ' ' : d}
 			
 			h2 RULE
 			ul#rule
@@ -47,6 +43,5 @@ html
 			
 			script(src="swap_piece.js")
 			script.
-				var a = #{JSON.stringify(a)},
-					q = #{JSON.stringify(q)};
+				var a = #{JSON.stringify(a)}, q = #{JSON.stringify(q)};
 				start(q, a);
