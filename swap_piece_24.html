@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
-	<title>Swap Piece</title>
+	<title>Swap Puzzle Q.24</title>
 	<link rel="stylesheet" type="text/css" href="swap_piece.css" />
 </head>
 <body>
@@ -11,27 +11,23 @@
 		<p>Moves <span id="moves">0</span><span id="best"></span></p>
 		<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
 		<table id="table">
-			<tr><td id="p00"> </td><td id="p01"> </td><td id="p02">x</td><td id="p03"> </td><td id="p04"> </td></tr>
-			<tr><td id="p10"> </td><td id="p11"> </td><td id="p12">4</td><td id="p13"> </td><td id="p14"> </td></tr>
-			<tr><td id="p20">x</td><td id="p21">3</td><td id="p22">5</td><td id="p23">2</td><td id="p24">x</td></tr>
-			<tr><td id="p30"> </td><td id="p31"> </td><td id="p32">1</td><td id="p33"> </td><td id="p34"> </td></tr>
-			<tr><td id="p40"> </td><td id="p41"> </td><td id="p42">x</td><td id="p43"> </td><td id="p44"> </td></tr>
+			<tr><td id="p00"> </td><td id="p01"> </td><td id="p02">x</td><td id="p03"> </td></tr>
+			<tr><td id="p10"> </td><td id="p11"> </td><td id="p12">4</td><td id="p13"> </td></tr>
+			<tr><td id="p20">x</td><td id="p21">3</td><td id="p22">5</td><td id="p23">2</td></tr>
 		</table>
 		
 <!--		<div id="overlay"></div>-->
 
 		<div id="complete">
 			<p>Complete!</p>
-			<p><a id="next" href="swap_piece_0.html">Next</a><a id="tweet" href="https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F" target="_blank">Tweet</a></p>
+			<p><a id="next" href="swap_piece_25.html">Next</a><a id="tweet" href="https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F" target="_blank">Tweet</a></p>
 		</div>
 
 		<h2>ANSWER</h2>
 		<table id="answer">
-			<tr><td> </td><td> </td><td>1</td><td> </td><td> </td></tr>
-			<tr><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-			<tr><td>2</td><td> </td><td>5</td><td> </td><td>4</td></tr>
-			<tr><td> </td><td> </td><td> </td><td> </td><td> </td></tr>
-			<tr><td> </td><td> </td><td>3</td><td> </td><td> </td></tr>
+			<tr><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+			<tr><td> </td><td> </td><td> </td><td> </td></tr>
+			<tr><td>5</td><td>6</td><td>7</td><td>8</td></tr>
 		</table>
 
 		<h2>ルール</h2>
@@ -44,21 +40,17 @@
 	<script src="swap_piece.js"></script>
 	<script>
 		var q = [
-			[  0,  0,  0,  0, -1],
-			[  0,  0,  0,  1,  2],
-			[  0,  0, 10,  3,  4],
-			[  0,  5,  6,  9,  0],
-			[ -1,  7,  8,  0,  0]
+			[ 1, 2, 3, -1],
+			[ 4, 0, 5,  0],
+			[ 6, 7, 8, -1]
 		];
 		
 		var a = [
-			[ 0, 0, 1, 0, 0],
-			[ 0, 0, 0, 0, 0],
-			[ 2, 0, 5, 0, 4],
-			[ 0, 0, 0, 0, 0],
-			[ 0, 0, 3, 0, 0]
+			[ 1, 2, 3, 4],
+			[ 0, 0, 0, 0],
+			[ 5, 6, 7, 8]
 		];
-		
+		// 90
 		start(q, a);
 	</script>
 </body>
