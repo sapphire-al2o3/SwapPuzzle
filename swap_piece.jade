@@ -18,8 +18,8 @@ html
 			table#table
 				for tr, i in q
 					tr
-					for td, j in tr
-						td(id='p'+i+j) #{td}
+						for td, j in tr
+							td(id='p'+i+j) #{td}
 			
 			#complete
 				p Complete!
