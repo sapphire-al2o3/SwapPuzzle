@@ -1,0 +1,44 @@
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width")
+		title Swap Puzzle
+		link(rel='stylesheet', href='swap_piece.css')
+	body
+		#container
+			h1 Swap Puzzle
+		
+		p Select Question!
+		
+		table.menu
+			tr
+				for td in [0, 1, 2, 3, 4]
+					td
+						a(href="")
+						span Q.#{td}
+						span
+		
+		script.
+			(function() {
+				if(localStorage) {
+					var a = document.querySelectorAll('td a');
+					for(var i = 0; i < a.length; i++) {
+						var p = a[i].href.match(/.*\/([^\?#;\/]+).*$/)[1];
+
+						var best = localStorage.getItem(p);
+						if(best) {
+							var b = a[i].childNodes[1];
+							b.textContent = 'Best: ' + best + '';
+							a[i].parentNode.classList.add('clear');
+						}
+					}
+
+					var clear = document.getElementById('clear');
+					clear.style.display = 'inline';
+					clear.addEventListener('click', function() {
+						localStorage.clear();
+					});
+				}
+			})();
+		
