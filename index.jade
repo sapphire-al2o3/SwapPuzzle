@@ -5,19 +5,85 @@ html
 		meta(name="viewport", content="width=device-width")
 		title Swap Puzzle
 		link(rel='stylesheet', href='swap_piece.css')
+		style.
+			h1 {
+				text-align: center;
+			}
+
+			p {
+				text-align: center;
+			}
+
+			.menu td a {
+				font-size: 24px;
+				text-decoration: none;
+				color: #000;
+				display: block;
+			}
+
+			.menu td a[href=""] {
+				display: none;
+			}
+
+			.menu td a span {
+				display: block;
+			}
+
+			.menu td a span:last-child {
+				font-size: 12px;
+				font-weight: normal;
+				color: #555;
+			}
+
+			.menu td:hover {
+				background-color: #EDE;
+			}
+
+			.deactive td {
+				background-color: #E2E2E2;
+			}
+
+			.deactive td a {
+				color: #777;
+			}
+
+			ul {
+				list-style-type :none;
+			}
+
+			li span {
+				padding-left: 8px;
+				font-size: 14px;
+			}
+
+			li {
+				text-indent: 1em;
+			}
+
+			.menu td.clear {
+				background-color: #84d0ff;
+			}
+
+			div {
+				margin-top: 32px;
+			}
 	body
 		#container
 			h1 Swap Puzzle
 		
-		p Select Question!
-		
-		table.menu
-			tr
-				for td in [0, 1, 2, 3, 4]
-					td
-						a(href="")
-						span Q.#{td}
-						span
+			p Select Question!
+
+			table.menu
+				for tr in [0, 1, 2, 3, 4]
+					tr
+						for td in [0, 1, 2, 3, 4]
+							- var i = tr * 5 + td;
+							td
+								a(href="q" + i + ".html")
+									span Q.#{i}
+									span
+			div
+				span#clear(style="display: none;") スコアのクリア
 		
 		script.
 			(function() {

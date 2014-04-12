@@ -32,13 +32,33 @@ html
 			table#answer
 				for r in a
 					tr
-					for d in r
-						td #{d === 0 ? ' ' : d}
-			
+						for d in r
+							td #{d === 0 ? ' ' : d}
+			- var qq = q.reduce(function(a, b) { return a.concat(b); }, []);
+			- var rule = []; for(var i = 0; i < 10; i++) rule[i] = qq.indexOf(-i - 1) >= 0;
 			h2 RULE
 			ul#rule
-				li 数字をクリックしてピースの場所を入れ替える。
-				li 数字は隣接する<span>x</span>とだけ交換できる。
+				li クリックしてピースの場所を入れ替える。
+				if rule[0]
+					li <span>x</span>は隣と交換できる。
+				if rule[1]
+					li <span>&#8596;</span>は左右と交換できる。
+				if rule[2]
+					li <span>&#8597;</span>は上下と交換できる。
+				if rule[3]
+					li <span>&#8592;</span>は左と交換できる。
+				if rule[4]
+					li <span>&#8593;</span>は上と交換できる。
+				if rule[5]
+					li <span>&#8594;</span>は右と交換できる。
+				if rule[6]
+					li <span>&#8595;</span>は下と交換できる。
+				if rule[7]
+					li <span>#</span>は隣接する数字と交換できる。
+				if rule[8]
+					li <span>e</span>は隣接する偶数と交換できる。
+				if rule[9]
+					li <span>o</span>は隣接する奇数と交換できる。
 				li 答えと同じ配置にするとクリア。
 			
 			script(src="swap_piece.js")
