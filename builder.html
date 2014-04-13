@@ -13,9 +13,7 @@
 			function builder($scope) {
 				'use strict';
 				
-				var q = _.times(5, _.range);
 				$scope.q = _.map([[],[],[],[],[],[]], function() { return _.range(5); });
-				console.log($scope.q);
 				$scope.rows = 2;
 				$scope.cols = 2;
 				$scope.range = function(n) {
@@ -25,13 +23,71 @@
 				};
 				$scope.update = function(e) {
 				};
+				$scope.testMode = false;
+				
+				var pattern = {};
+				pattern[''] = { n: 0, f: '' };
+				pattern['x'] = { n: -1, f: 'x' };
+				pattern['h'] = { n: -2, f: '&#8596;' };
+				pattern['v'] = { n: -3, f: '&#8597;' };
+				pattern['l'] = { n: -4, f: '&#8592;' };
+				pattern['u'] = { n: -5, f: '&#8593;' };
+				pattern['r'] = { n: -6, f: '&#8594;' };
+				pattern['d'] = { n: -7, f: '&#8595;' };
+				pattern['e'] = { n: -8, f: 'e' };
+				pattern['o'] = { n: -9, f: 'o' };
+				pattern['#'] = { n: -10, f: '#' };
+				pattern['lu'] = { n: -11, f: '&#8626;' }; // left up
+				pattern['lb'] = { n: -12, f: '&#8624;' }; // left bottom
+				pattern['ru'] = { n: -13, f: '&#8627;' }; // right up
+				pattern['rd'] = { n: -14, f: '&#8625;' }; // right bottom
+				$scope.blur = function(e) {
+					if(e.target.innerHTML === '') e.target.classList.add('block');
+					else e.target.classList.remove('block');
+					
+					var p = pattern[e.target.innerHTML.toLowerCase()];
+					if(p) {
+						e.target.innerHTML = p.f;
+					}
+					e.target.setAttribute('data-p', p ? p.n : parseInt(e.target.innerHTML, 10));
+				};
+				
+				$scope.test = function() {
+					if(!$scope.testMode) {
+						document.getElementById('test').textContent = 'Edit';
+						var td = document.querySelectorAll('td');
+						_.each(td, function(e) {
+							e.removeAttribute('contenteditable');
+						});
+						document.querySelector('table').removeEventListener('click', edit);
+						var q = [], a = [];
+						for(var i = 0; i < $scope.rows; i++) {
+							q[i] = [];
+							a[i] = [];
+							for(var j = 0; j < $scope.cols; j++) {
+								var p = document.getElementById(['p', i, j].join(''));
+								q[i][j] = parseInt(p.getAttribute('data-p'), 10);
+								a[i][j] = 99;
+							}
+						}
+						start(q, a);
+					} else {
+						document.getElementById('test').textContent = 'Test';
+						document.querySelector('table').addEventListener('click', edit);
+						var td = document.querySelectorAll('td');
+						_.each(td, function(e) {
+							e.setAttribute('contenteditable', '');
+						});
+						var q = finish();
+					}
+					$scope.testMode = !$scope.testMode;
+				};
 				
 				function edit(e) {
 					if(e.target.localName === 'td') {
 						document.execCommand('selectAll', false, null);
 						e.stopPropagation();
 					}
-					console.log(e.target);
 				}
 				
 				document.querySelector('table').addEventListener('click', edit);
@@ -42,24 +98,24 @@
 <body>
 	<div ng-controller="builder" id="container">
 		<h1>Builder</h1>
-		<table>
+			<p>Moves <span id="moves">0</span><span id="best"></span></p>
+			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+		<table id="table">
 			<tr ng-repeat="tr in range(rows)">
-				<td contenteditable="true" ng-repeat="td in range(cols)" id="p{{tr}}{{td}}">1</td>
+				<td contenteditable ng-blur="blur($event)" ng-repeat="td in range(cols)" id="p{{tr}}{{td}}" data-p="1">1</td>
 			</tr>
 		</table>
-		<label>Size: </label>
-		<select ng-model="rows" ng-change="update()">
-			<option ng-repeat="o in [2, 3, 4, 5, 6]" value="{{o}}">{{o}}</option>
-		</select>
-		<select ng-model="cols">
-			<option ng-repeat="o in [2, 3, 4, 5, 6]">{{o}}</option>
-		</select>
-		<p><button>Test</button></p>
+		<p>
+			<label>Size: </label>
+			<select ng-model="rows" ng-change="update()">
+				<option ng-repeat="o in [2, 3, 4, 5, 6]" value="{{o}}">{{o}}</option>
+			</select>
+			<select ng-model="cols">
+				<option ng-repeat="o in [2, 3, 4, 5, 6]">{{o}}</option>
+			</select>
+		</p>
+		<p><button ng-click="test()" id="test">Test</button></p>
 	</div>
-	<script>
-		(function() {
-			
-		})();
-	</script>
+	<script src="swap_piece.js"></script>
 </body>
 </html>

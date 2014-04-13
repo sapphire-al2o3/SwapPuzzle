@@ -21,10 +21,10 @@
 	pattern[-8] = 'e';
 	pattern[-9] = 'o';
 	pattern[-10] = '#';
-	pattern[-11] = '&#8626'; // left up
-	pattern[-12] = '&#8624'; // left bottom
-	pattern[-13] = '&#8627'; // right up
-	pattern[-14] = '&#8625'; // right bottom
+	pattern[-11] = '&#8626;'; // left up
+	pattern[-12] = '&#8624;'; // left bottom
+	pattern[-13] = '&#8627;'; // right up
+	pattern[-14] = '&#8625;'; // right bottom
 	
 	
 	var movesText = document.getElementById('moves'),
@@ -58,7 +58,7 @@
 				if(p === 0) pieces[i][j].classList.add('block');
 			}
 		}
-		completeText.style.display = 'none';
+		if(completeText) completeText.style.display = 'none';
 		first = true;
 		pos.x = 0;
 		pos.y = 0;
@@ -144,7 +144,7 @@
 						}
 					} catch(e) {
 					}
-					completeText.style.display = 'block';
+					if(completeText) completeText.style.display = 'block';
 					document.getElementById('table').removeEventListener('touchstart', clickPiece);
 					document.getElementById('table').removeEventListener('mousedown', clickPiece);
 				}
@@ -158,6 +158,11 @@
 		question = q;
 		answer = a;
 		reset();
+	};
+	global.finish = function() {
+		document.getElementById('table').removeEventListener('touchstart', clickPiece);
+		document.getElementById('table').removeEventListener('mousedown', clickPiece);
+		return table;
 	};
 
 })(this);
