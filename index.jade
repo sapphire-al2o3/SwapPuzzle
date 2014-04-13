@@ -74,7 +74,7 @@ html
 			p Select Question!
 
 			table.menu
-				for tr in [0, 1, 2, 3, 4]
+				for tr in [0, 1, 2, 3, 4, 5]
 					tr
 						for td in [0, 1, 2, 3, 4]
 							- var i = tr * 5 + td;
@@ -82,6 +82,13 @@ html
 								a(href="q" + i + ".html")
 									span Q.#{i}
 									span
+			h2 RULE
+			ul
+				li ピースを入れ替えて数字を答えと同じ配置にするとクリア
+				li 交換したいピースをクリックする
+				li リセットボタンではじめからやり直す
+			
+			
 			div
 				span#clear(style="display: none;") スコアのクリア
 		

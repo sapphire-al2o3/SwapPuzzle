@@ -38,7 +38,6 @@ html
 			- var rule = []; for(var i = 0; i < 10; i++) rule[i] = qq.indexOf(-i - 1) >= 0;
 			h2 RULE
 			ul#rule
-				li クリックしてピースの場所を入れ替える。
 				if rule[0]
 					li <span>x</span>は隣と交換できる。
 				if rule[1]
@@ -59,6 +58,7 @@ html
 					li <span>e</span>は隣接する偶数と交換できる。
 				if rule[9]
 					li <span>o</span>は隣接する奇数と交換できる。
+				li クリックしてピースの場所を入れ替える。
 				li 答えと同じ配置にするとクリア。
 			
 			script(src="swap_piece.js")
