@@ -146,7 +146,7 @@
 				document.getElementById('table').removeEventListener('mousedown', clickPiece);
 			}
 		}
-		if(!playing) record.push([x, y]);
+		if(!playing) record.push(x, y);
 	}
 	
 	function clickPiece(e) {
@@ -170,14 +170,15 @@
 		document.getElementById('table').removeEventListener('mousedown', clickPiece);
 		return table;
 	};
-	global.play = function() {
+	global.play = function(r) {
+		r = r || record;
 		playing = true;
 		var i = 0;
 		reset();
 		var timer = setInterval(function() {
-			if(record.length > i) {
-				swap(record[i][0], record[i][1]);
-				i++;
+			if(r.length > i) {
+				swap(r[i], r[i + 1]);
+				i += 2;
 			} else {
 				clearInterval(timer);
 			}
