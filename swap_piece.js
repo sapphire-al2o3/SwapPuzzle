@@ -149,12 +149,44 @@
 		if(!playing) record.push(x, y);
 	}
 	
+	function upPiece(e) {
+		document.removeEventListener('touchmove', movePiece);
+		document.removeEventListener('mousemove', movePiece);
+		document.removeEventListener('touchend', upPiece);
+		document.removeEventListener('mouseup', upPiece);
+		e.preventDefault();
+		e.stopPropagation();
+	}
+	
+	var px = 0, py = 0;
+	
+	function movePiece(e) {
+		if(e.target.localName === 'td') {
+			var y = e.target.parentNode.rowIndex,
+				x = e.target.cellIndex;
+			if(x !== px || y !== py) {
+				swap(x, y);
+				swap(x, y);
+				px = x;
+				py = y;
+			}
+		}
+		e.preventDefault();
+		e.stopPropagation();
+	}
+	
 	function clickPiece(e) {
 		if(e.target.localName === 'td') {
 			var y = e.target.parentNode.rowIndex,
 				x = e.target.cellIndex;
-			
+			px = x;
+			py = y;
 			swap(x, y);
+			
+			document.addEventListener('touchmove', movePiece);
+			document.addEventListener('mousemove', movePiece);
+			document.addEventListener('touchend', upPiece);
+			document.addEventListener('mouseup', upPiece);
 		}
 		e.preventDefault();
 		e.stopPropagation();
