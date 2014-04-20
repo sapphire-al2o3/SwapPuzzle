@@ -162,6 +162,9 @@
 	
 	function movePiece(e) {
 		if(e.target.localName === 'td') {
+			
+			var target = e.targetTouches ? e.targetTouches[0].target : e.target
+			
 			var y = e.target.parentNode.rowIndex,
 				x = e.target.cellIndex;
 			if(x !== px || y !== py) {
