@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Swap Puzzle Q.39</title>
+		<link rel="stylesheet" href="swap_piece.css">
+	</head>
+	<body>
+		<div id="container">
+			<p>Moves <span id="moves">0</span><span id="best"></span></p>
+			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+			<table id="table">
+				<tr><td id="p00">0</td><td id="p01">-1</td><td id="p02">0</td><td id="p03">-1</td><td id="p04">0</td>
+				</tr>
+				<tr><td id="p10">1</td><td id="p11">2</td><td id="p12">3</td><td id="p13">4</td><td id="p14">5</td>
+				</tr>
+				<tr><td id="p20">0</td><td id="p21">6</td><td id="p22">0</td><td id="p23">7</td><td id="p24">0</td>
+				</tr>
+				<tr><td id="p30">8</td><td id="p31">9</td><td id="p32">10</td><td id="p33">11</td><td id="p34">12</td>
+				</tr>
+				<tr><td id="p40">0</td><td id="p41">-1</td><td id="p42">0</td><td id="p43">-1</td><td id="p44">0</td>
+				</tr>
+			</table>
+			<div id="complete">
+				<p>Complete!</p>
+				<p><a id="next" href="q40.html">Next</a><a id="tweet" href="https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F" target="_blank">Tweet</a>
+				</p>
+			</div>
+			<h2>ANSWER</h2>
+			<table id="answer">
+				<tr><td> </td><td>1</td><td> </td><td>2</td><td> </td>
+				</tr>
+				<tr><td>3</td><td> </td><td>4</td><td> </td><td>5</td>
+				</tr>
+				<tr><td> </td><td>6</td><td> </td><td>7</td><td> </td>
+				</tr>
+				<tr><td>8</td><td> </td><td>9</td><td> </td><td>10</td>
+				</tr>
+				<tr><td> </td><td>11</td><td> </td><td>12</td><td> </td>
+				</tr>
+			</table>
+			<h2>RULE</h2>
+			<ul id="rule">
+				<li><span>x</span>は隣と交換できる。</li>
+				<li>クリックしてピースの場所を入れ替える。</li>
+				<li>答えと同じ配置にするとクリア。</li>
+			</ul>
+			<script src="swap_piece.js"></script>
+			<script>
+				var a = [[0,1,0,2,0],[3,0,4,0,5],[0,6,0,7,0],[8,0,9,0,10],[0,11,0,12,0]], q = [[0,-1,0,-1,0],[1,2,3,4,5],[0,6,0,7,0],[8,9,10,11,12],[0,-1,0,-1,0]];
+				start(q, a);
+			</script>
+		</div>
+	</body>
+</html>

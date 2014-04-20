@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Swap Puzzle Q.30</title>
+		<link rel="stylesheet" href="swap_piece.css">
+	</head>
+	<body>
+		<div id="container">
+			<p>Moves <span id="moves">0</span><span id="best"></span></p>
+			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+			<table id="table">
+				<tr><td id="p00">-14</td><td id="p01">-14</td><td id="p02">-6</td><td id="p03">1</td><td id="p04">2</td>
+				</tr>
+				<tr><td id="p10">-13</td><td id="p11">-13</td><td id="p12">-6</td><td id="p13">4</td><td id="p14">3</td>
+				</tr>
+			</table>
+			<div id="complete">
+				<p>Complete!</p>
+				<p><a id="next" href="q31.html">Next</a><a id="tweet" href="https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F" target="_blank">Tweet</a>
+				</p>
+			</div>
+			<h2>ANSWER</h2>
+			<table id="answer">
+				<tr><td>3</td><td>4</td><td> </td><td> </td><td> </td>
+				</tr>
+				<tr><td>2</td><td>1</td><td> </td><td> </td><td> </td>
+				</tr>
+			</table>
+			<h2>RULE</h2>
+			<ul id="rule">
+				<li><span>&#8594;</span>は右と交換できる。</li>
+				<li><span>&#8627;</span>は右か上と交換できる。</li>
+				<li><span>&#8625;</span>は右か下と交換できる。</li>
+				<li>クリックしてピースの場所を入れ替える。</li>
+				<li>答えと同じ配置にするとクリア。</li>
+			</ul>
+			<script src="swap_piece.js"></script>
+			<script>
+				var a = [[3,4,0,0,0],[2,1,0,0,0]], q = [[-14,-14,-6,1,2],[-13,-13,-6,4,3]];
+				start(q, a);
+			</script>
+		</div>
+	</body>
+</html>

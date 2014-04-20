@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Swap Puzzle Q.41</title>
+		<link rel="stylesheet" href="swap_piece.css">
+	</head>
+	<body>
+		<div id="container">
+			<p>Moves <span id="moves">0</span><span id="best"></span></p>
+			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+			<table id="table">
+				<tr><td id="p00">1</td><td id="p01">-7</td><td id="p02">-4</td><td id="p03">5</td>
+				</tr>
+				<tr><td id="p10">2</td><td id="p11">-3</td><td id="p12">-12</td><td id="p13">6</td>
+				</tr>
+				<tr><td id="p20">3</td><td id="p21">-13</td><td id="p22">-2</td><td id="p23">7</td>
+				</tr>
+				<tr><td id="p30">4</td><td id="p31">-6</td><td id="p32">-5</td><td id="p33">8</td>
+				</tr>
+			</table>
+			<div id="complete">
+				<p>Complete!</p>
+				<p><a id="next" href="q42.html">Next</a><a id="tweet" href="https://twitter.com/share?url=http%3A%2F%2Fsapphire-al2o3.github.io%2FSwapPuzzle%2F" target="_blank">Tweet</a>
+				</p>
+			</div>
+			<h2>ANSWER</h2>
+			<table id="answer">
+				<tr><td>5</td><td> </td><td> </td><td>1</td>
+				</tr>
+				<tr><td>6</td><td> </td><td> </td><td>2</td>
+				</tr>
+				<tr><td>7</td><td> </td><td> </td><td>3</td>
+				</tr>
+				<tr><td>8</td><td> </td><td> </td><td>4</td>
+				</tr>
+			</table>
+			<h2>RULE</h2>
+			<ul id="rule">
+				<li><span>&#8596;</span>は左右と交換できる。</li>
+				<li><span>&#8597;</span>は上下と交換できる。</li>
+				<li><span>&#8592;</span>は左と交換できる。</li>
+				<li><span>&#8593;</span>は上と交換できる。</li>
+				<li><span>&#8594;</span>は右と交換できる。</li>
+				<li><span>&#8595;</span>は下と交換できる。</li>
+				<li><span>&#8624;</span>は左か下と交換できる。</li>
+				<li><span>&#8627;</span>は右か上と交換できる。</li>
+				<li>クリックしてピースの場所を入れ替える。</li>
+				<li>答えと同じ配置にするとクリア。</li>
+			</ul>
+			<script src="swap_piece.js"></script>
+			<script>
+				var a = [[5,0,0,1],[6,0,0,2],[7,0,0,3],[8,0,0,4]], q = [[1,-7,-4,5],[2,-3,-12,6],[3,-13,-2,7],[4,-6,-5,8]];
+				start(q, a);
+			</script>
+		</div>
+	</body>
+</html>
