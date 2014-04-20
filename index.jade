@@ -61,7 +61,7 @@ html
 			p Select Question!
 
 			table.menu
-				for tr in [0, 1, 2, 3, 4]
+				for tr in [0, 1, 2, 3, 4, 5]
 					tr
 						for td in [0, 1, 2, 3, 4]
 							- var i = tr * 5 + td;
@@ -74,7 +74,6 @@ html
 				li ピースを入れ替えて数字を答えと同じ配置にするとクリア
 				li 交換したいピースをクリックする
 				li リセットボタンではじめからやり直す
-			
 			
 			div
 				span#clear(style="display: none;") スコアのクリア
@@ -98,6 +97,11 @@ html
 					clear.style.display = 'inline';
 					clear.addEventListener('click', function() {
 						localStorage.clear();
+						var a = document.querySelectorAll('td a');
+						for(var i = 0; i < a.length; i++) {
+							a[i].childNodes[1].textContent = '';
+							a[i].parentNode.classList.remove('clear');
+						}
 					});
 				}
 			})();

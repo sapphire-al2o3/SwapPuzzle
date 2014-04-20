@@ -71,6 +71,8 @@
 				</tr>
 				<tr><td><a href="q/q20.html"><span>Q.20</span><span></span></a></td><td><a href="q/q21.html"><span>Q.21</span><span></span></a></td><td><a href="q/q22.html"><span>Q.22</span><span></span></a></td><td><a href="q/q23.html"><span>Q.23</span><span></span></a></td><td><a href="q/q24.html"><span>Q.24</span><span></span></a></td>
 				</tr>
+				<tr><td><a href="q/q25.html"><span>Q.25</span><span></span></a></td><td><a href="q/q26.html"><span>Q.26</span><span></span></a></td><td><a href="q/q27.html"><span>Q.27</span><span></span></a></td><td><a href="q/q28.html"><span>Q.28</span><span></span></a></td><td><a href="q/q29.html"><span>Q.29</span><span></span></a></td>
+				</tr>
 			</table>
 			<h2>RULE</h2>
 			<ul>
@@ -99,6 +101,11 @@
 			  clear.style.display = 'inline';
 			  clear.addEventListener('click', function() {
 			   localStorage.clear();
+			   var a = document.querySelectorAll('td a');
+			   for(var i = 0; i < a.length; i++) {
+			    a[i].childNodes[1].textContent = '';
+			    a[i].parentNode.classList.remove('clear');
+			   }
 			  });
 			 }
 			})();
