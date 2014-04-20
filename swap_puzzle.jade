@@ -19,7 +19,7 @@ html
 				for tr, i in q
 					tr
 						for td, j in tr
-							td(id='p'+i+j) #{td}
+							td(id='p'+i+j) #{td === 0 : ' ' : td}
 			
 			#complete
 				p Complete!
