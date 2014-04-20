@@ -163,7 +163,7 @@
 	function movePiece(e) {
 		if(e.target.localName === 'td') {
 			
-			var target = e.touches ? e.touches[0].target : e.target
+			var target = e.touches ? document.elementFromPoint(e.clientX, e.clientY) : e.target;
 			
 			var y = target.parentNode.rowIndex,
 				x = target.cellIndex;
