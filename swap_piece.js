@@ -165,8 +165,8 @@
 			
 			var target = e.targetTouches ? e.targetTouches[0].target : e.target
 			
-			var y = e.target.parentNode.rowIndex,
-				x = e.target.cellIndex;
+			var y = target.parentNode.rowIndex,
+				x = target.cellIndex;
 			if(x !== px || y !== py) {
 				swap(x, y);
 				swap(x, y);
