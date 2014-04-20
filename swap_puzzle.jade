@@ -4,7 +4,7 @@ html
 		meta(charset="UTF-8")
 		meta(name="viewport", content="width=device-width")
 		title Swap Puzzle Q.#{n}
-		link(rel='stylesheet', href='swap_piece.css')
+		link(rel="stylesheet", href="/swap_piece.css")
 	body
 		#container
 			p Moves 
@@ -12,14 +12,14 @@ html
 				span#best
 			
 			p#menu
-				a#top(href="./index.html") Top
+				a#top(href="/") Top
 				span#reset Reset
 			
 			table#table
 				for tr, i in q
 					tr
 						for td, j in tr
-							td(id='p'+i+j) #{td === 0 : ' ' : td}
+							td(id='p'+i+j) #{td === 0 ? ' ' : td}
 			
 			#complete
 				p Complete!
@@ -70,7 +70,7 @@ html
 				li クリックしてピースの場所を入れ替える。
 				li 答えと同じ配置にするとクリア。
 			
-			script(src="swap_piece.js")
+			script(src="/swap_piece.js")
 			script.
 				var a = #{JSON.stringify(a)}, q = #{JSON.stringify(q)};
 				start(q, a);

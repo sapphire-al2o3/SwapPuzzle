@@ -1,144 +1,107 @@
-<!doctype html>
-<html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width" />
-	<title>Swap Puzzle</title>
-	<link rel="stylesheet" type="text/css" href="swap_piece.css" />
-	<style>
-		h1 {
-			text-align: center;
-		}
-		
-		p {
-			text-align: center;
-		}
-		
-		.menu td a {
-			font-size: 24px;
-			text-decoration: none;
-			color: #000;
-			display: block;
-		}
-		
-		.menu td a[href=""] {
-			display: none;
-		}
-		
-		.menu td a span {
-			display: block;
-		}
-		
-		.menu td a span:last-child {
-			font-size: 12px;
-			font-weight: normal;
-			color: #555;
-		}
-		
-		.menu td:hover {
-			background-color: #EDE;
-		}
-		
-		.deactive td {
-			background-color: #E2E2E2;
-		}
-
-		.deactive td a {
-			color: #777;
-		}
-		
-		.menu td.clear {
-			background-color: #84d0ff;
-		}
-		
-		div {
-			margin-top: 32px;
-		}
-		
-	</style>
-</head>
-<body>
-	<div id="container">
-		<h1>Swap Puzzle</h1>
-		
-		<p>Select Question !</p>
-		<table class="menu">
-			<tr>
-				<td><a href="swap_piece_0.html"><span>Q.0</span><span></span></a></td>
-				<td><a href="swap_piece_1.html"><span>Q.1</span><span></span></a></td>
-				<td><a href="swap_piece_2.html"><span>Q.2</span><span></span></a></td>
-				<td><a href="swap_piece_3.html"><span>Q.3</span><span></span></a></td>
-				<td><a href="swap_piece_4.html"><span>Q.4</span><span></span></a></td>
-			</tr>
-			<tr>
-				<td><a href="swap_piece_5.html"><span>Q.5</span><span></span></a></td>
-				<td><a href="swap_piece_6.html"><span>Q.6</span><span></span></a></td>
-				<td><a href="swap_piece_7.html"><span>Q.7</span><span></span></a></td>
-				<td><a href="swap_piece_8.html"><span>Q.8</span><span></span></a></td>
-				<td><a href="swap_piece_9.html"><span>Q.9</span><span></span></a></td>
-			</tr>
-			<tr>
-				<td><a href="swap_piece_10.html"><span>Q.10</span><span></span></a></td>
-				<td><a href="swap_piece_11.html"><span>Q.11</span><span></span></a></td>
-				<td><a href="swap_piece_12.html"><span>Q.12</span><span></span></a></td>
-				<td><a href="swap_piece_13.html"><span>Q.13</span><span></span></a></td>
-				<td><a href="swap_piece_14.html"><span>Q.14</span><span></span></a></td>
-			</tr>
-			<tr>
-				<td><a href="swap_piece_15.html"><span>Q.15</span><span></span></a></td>
-				<td><a href="swap_piece_16.html"><span>Q.16</span><span></span></a></td>
-				<td><a href="swap_piece_17.html"><span>Q.17</span><span></span></a></td>
-				<td><a href="swap_piece_18.html"><span>Q.18</span><span></span></a></td>
-				<td><a href="swap_piece_19.html"><span>Q.19</span><span></span></a></td>
-			</tr>
-		</table>
-<!--
-		<ul>
-			<li><a href="swap_piece_0.html">Q. 0</a><span id="best0"></span></li>
-			<li><a href="swap_piece_1.html">Q. 1</a><span id="best1"></span></li>
-			<li><a href="swap_piece_2.html">Q. 2</a><span id="best2"></span></li>
-			<li><a href="swap_piece_3.html">Q. 3</a><span id="best3"></span></li>
-			<li><a href="swap_piece_4.html">Q. 4</a><span id="best4"></span></li>
-			<li><a href="swap_piece_5.html">Q. 5</a><span id="best5"></span></li>
-			<li><a href="swap_piece_6.html">Q. 6</a><span id="best6"></span></li>
-			<li><a href="swap_piece_7.html">Q. 7</a><span id="best7"></span></li>
-			<li><a href="swap_piece_8.html">Q. 8</a><span id="best8"></span></li>
-			<li><a href="swap_piece_9.html">Q. 9</a><span id="best9"></span></li>
-			<li><a href="swap_piece_10.html">Q. 10</a><span id="best10"></span></li>
-			<li><a href="swap_piece_11.html">Q. 11</a><span id="best11"></span></li>
-			<li><a href="swap_piece_12.html">Q. 12</a><span id="best12"></span></li>
-			<li><a href="swap_piece_13.html">Q. 13</a><span id="best13"></span></li>
-		</ul>
--->
-		<h2>RULE</h2>
-		<ul>
-			<li>ピースを入れ替えて数字を答えと同じ配置にするとクリア</li>
-		</ul>
-		<div><span id="clear" style="display: none;">スコアのクリア</span></div>
-	</div>
-	<script>
-		(function() {
-			if(localStorage) {
-				var a = document.querySelectorAll('td a');
-				for(var i = 0; i < a.length; i++) {
-					var p = a[i].href.match(/.*\/([^\?#;\/]+).*$/)[1];
-					
-					var best = localStorage.getItem(p);
-					if(best) {
-						var b = a[i].childNodes[1];
-						b.textContent = 'Best: ' + best + '';
-						a[i].parentNode.classList.add('clear');
-					}
-				}
-				
-				
-				var clear = document.getElementById('clear');
-				clear.style.display = 'inline';
-				clear.addEventListener('click', function() {
-					localStorage.clear();
-				});
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Swap Puzzle</title>
+		<link rel="stylesheet" href="swap_piece.css">
+		<style>
+			h1 {
+			 text-align: center;
 			}
-		})();
-	</script>
-</body>
+			
+			p {
+			 text-align: center;
+			}
+			
+			.menu td a {
+			 font-size: 24px;
+			 text-decoration: none;
+			 color: #000;
+			 display: block;
+			}
+			
+			.menu td a[href=""] {
+			 display: none;
+			}
+			
+			.menu td a span {
+			 display: block;
+			}
+			
+			.menu td a span:last-child {
+			 font-size: 12px;
+			 font-weight: normal;
+			 color: #555;
+			}
+			
+			.menu td:hover {
+			 background-color: #EDE;
+			}
+			
+			.deactive td {
+			 background-color: #E2E2E2;
+			}
+			
+			.deactive td a {
+			 color: #777;
+			}
+			
+			.menu td.clear {
+			 background-color: #84d0ff;
+			}
+			
+			div {
+			 margin-top: 32px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<h1>Swap Puzzle</h1>
+			<p>Select Question!</p>
+			<table class="menu">
+				<tr><td><a href="q/q0.html"><span>Q.0</span><span></span></a></td><td><a href="q/q1.html"><span>Q.1</span><span></span></a></td><td><a href="q/q2.html"><span>Q.2</span><span></span></a></td><td><a href="q/q3.html"><span>Q.3</span><span></span></a></td><td><a href="q/q4.html"><span>Q.4</span><span></span></a></td>
+				</tr>
+				<tr><td><a href="q/q5.html"><span>Q.5</span><span></span></a></td><td><a href="q/q6.html"><span>Q.6</span><span></span></a></td><td><a href="q/q7.html"><span>Q.7</span><span></span></a></td><td><a href="q/q8.html"><span>Q.8</span><span></span></a></td><td><a href="q/q9.html"><span>Q.9</span><span></span></a></td>
+				</tr>
+				<tr><td><a href="q/q10.html"><span>Q.10</span><span></span></a></td><td><a href="q/q11.html"><span>Q.11</span><span></span></a></td><td><a href="q/q12.html"><span>Q.12</span><span></span></a></td><td><a href="q/q13.html"><span>Q.13</span><span></span></a></td><td><a href="q/q14.html"><span>Q.14</span><span></span></a></td>
+				</tr>
+				<tr><td><a href="q/q15.html"><span>Q.15</span><span></span></a></td><td><a href="q/q16.html"><span>Q.16</span><span></span></a></td><td><a href="q/q17.html"><span>Q.17</span><span></span></a></td><td><a href="q/q18.html"><span>Q.18</span><span></span></a></td><td><a href="q/q19.html"><span>Q.19</span><span></span></a></td>
+				</tr>
+				<tr><td><a href="q/q20.html"><span>Q.20</span><span></span></a></td><td><a href="q/q21.html"><span>Q.21</span><span></span></a></td><td><a href="q/q22.html"><span>Q.22</span><span></span></a></td><td><a href="q/q23.html"><span>Q.23</span><span></span></a></td><td><a href="q/q24.html"><span>Q.24</span><span></span></a></td>
+				</tr>
+			</table>
+			<h2>RULE</h2>
+			<ul>
+				<li>ピースを入れ替えて数字を答えと同じ配置にするとクリア</li>
+				<li>交換したいピースをクリックする</li>
+				<li>リセットボタンではじめからやり直す</li>
+			</ul>
+			<div><span id="clear" style="display: none;">スコアのクリア</span></div>
+		</div>
+		<script>
+			(function() {
+			 if(localStorage) {
+			  var a = document.querySelectorAll('td a');
+			  for(var i = 0; i < a.length; i++) {
+			   var p = a[i].href.match(/.*\/([^\?#;\/]+).*$/)[1];
+			   
+			   var best = localStorage.getItem(p);
+			   if(best) {
+			    var b = a[i].childNodes[1];
+			    b.textContent = 'Best: ' + best + '';
+			    a[i].parentNode.classList.add('clear');
+			   }
+			  }
+			  
+			  var clear = document.getElementById('clear');
+			  clear.style.display = 'inline';
+			  clear.addEventListener('click', function() {
+			   localStorage.clear();
+			  });
+			 }
+			})();
+		</script>
+	</body>
 </html>

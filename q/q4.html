@@ -4,16 +4,16 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Swap Puzzle Q.4</title>
-		<link rel="stylesheet" href="swap_piece.css">
+		<link rel="stylesheet" href="/swap_piece.css">
 	</head>
 	<body>
 		<div id="container">
 			<p>Moves <span id="moves">0</span><span id="best"></span></p>
-			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+			<p id="menu"><a id="top" href="/">Top</a><span id="reset">Reset</span></p>
 			<table id="table">
-				<tr><td id="p00">0</td><td id="p01">0</td><td id="p02">1</td>
+				<tr><td id="p00"> </td><td id="p01"> </td><td id="p02">1</td>
 				</tr>
-				<tr><td id="p10">0</td><td id="p11">-1</td><td id="p12">2</td>
+				<tr><td id="p10"> </td><td id="p11">-1</td><td id="p12">2</td>
 				</tr>
 				<tr><td id="p20">4</td><td id="p21">3</td><td id="p22">-1</td>
 				</tr>
@@ -38,7 +38,7 @@
 				<li>クリックしてピースの場所を入れ替える。</li>
 				<li>答えと同じ配置にするとクリア。</li>
 			</ul>
-			<script src="swap_piece.js"></script>
+			<script src="/swap_piece.js"></script>
 			<script>
 				var a = [[0,0,0],[0,1,2],[0,3,4]], q = [[0,0,1],[0,-1,2],[4,3,-1]];
 				start(q, a);

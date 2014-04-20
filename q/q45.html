@@ -4,18 +4,18 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		<title>Swap Puzzle Q.45</title>
-		<link rel="stylesheet" href="swap_piece.css">
+		<link rel="stylesheet" href="/swap_piece.css">
 	</head>
 	<body>
 		<div id="container">
 			<p>Moves <span id="moves">0</span><span id="best"></span></p>
-			<p id="menu"><a id="top" href="./index.html">Top</a><span id="reset">Reset</span></p>
+			<p id="menu"><a id="top" href="/">Top</a><span id="reset">Reset</span></p>
 			<table id="table">
-				<tr><td id="p00">-3</td><td id="p01">1</td><td id="p02">0</td><td id="p03">0</td>
+				<tr><td id="p00">-3</td><td id="p01">1</td><td id="p02"> </td><td id="p03"> </td>
 				</tr>
 				<tr><td id="p10">2</td><td id="p11">-2</td><td id="p12">-2</td><td id="p13">3</td>
 				</tr>
-				<tr><td id="p20">0</td><td id="p21">0</td><td id="p22">4</td><td id="p23">-3</td>
+				<tr><td id="p20"> </td><td id="p21"> </td><td id="p22">4</td><td id="p23">-3</td>
 				</tr>
 			</table>
 			<div id="complete">
@@ -39,7 +39,7 @@
 				<li>クリックしてピースの場所を入れ替える。</li>
 				<li>答えと同じ配置にするとクリア。</li>
 			</ul>
-			<script src="swap_piece.js"></script>
+			<script src="/swap_piece.js"></script>
 			<script>
 				var a = [[4,3,0,0],[0,0,0,0],[0,0,2,1]], q = [[-3,1,0,0],[2,-2,-2,3],[0,0,4,-3]];
 				start(q, a);
