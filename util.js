@@ -23,6 +23,24 @@
 		}
 	}
 	
+	function move(elm, fn) {
+		if(elm.ontouchmove) {
+			elm.addEventListener('touchmove', function(e) {
+				
+			});
+		} else {
+			elm.addEventListener('mousemove', function(e) {
+				
+			});
+		}
+	}
+	
+	function down(elm, fn) {
+		if(elm.ontouchstart) {
+			
+		}
+	}
+	
 	global.selector = selector;
 	
 })(this);
