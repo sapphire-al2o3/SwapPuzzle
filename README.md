@@ -1,6 +1,8 @@
 SwapPuzzle
 ==========
 
+パネルを入れ替えるパズルゲーム
+
 ![](https://github.com/sapphire-al2o3/SwapPuzzle/blob/gh-pages/swap_puzzle_ss.png)
 
 http://sapphire-al2o3.github.io/SwapPuzzle
